@@ -1,6 +1,7 @@
 package utils;
 
 import java.time.LocalDate;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -647,5 +648,74 @@ public class Datos {
 				return ret = dp;
 		}
 		return ret;
+	}
+	
+	public static void expColegiadosjr() {
+		String path = "colegiadosjunior.dat";
+		try {
+			FileOutputStream fichero = new FileOutputStream(path, false);
+			
+			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			for (Colegiado c : Datos.COLEGIADOS) {
+				if (c.getCategoria().equals(Categoria.JUNIOR)) {
+					escritor.writeObject((Colegiado)c);
+					escritor.flush();
+				}
+			}
+			escritor.close();
+		}catch(FileNotFoundException exct) {
+			System.out.println("FileNotException" + exct.getMessage());
+		}catch(IOException exct) {
+			System.out.println("IOException" + exct.getMessage());
+		}catch(Exception exct) {
+			System.out.println("Exception" + exct.getMessage());
+		}
+		
+	}
+	
+	public static void expColegiadossen() {
+		String path = "colegiadossenior.dat";
+		try {
+			FileOutputStream fichero = new FileOutputStream(path, false);
+			
+			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			for (Colegiado c : Datos.COLEGIADOS) {
+				if (c.getCategoria().equals(Categoria.SENIOR)) {
+					escritor.writeObject((Colegiado)c);
+					escritor.flush();
+				}
+			}
+			escritor.close();
+		}catch(FileNotFoundException exct) {
+			System.out.println("FileNotException" + exct.getMessage());
+		}catch(IOException exct) {
+			System.out.println("IOException" + exct.getMessage());
+		}catch(Exception exct) {
+			System.out.println("Exception" + exct.getMessage());
+		}
+		
+	}
+	
+	public static void expColegiadosesp() {
+		String path = "colegiadosespecial.dat";
+		try {
+			FileOutputStream fichero = new FileOutputStream(path, false);
+			
+			ObjectOutputStream escritor = new ObjectOutputStream(fichero);
+			for (Colegiado c : Datos.COLEGIADOS) {
+				if (c.getCategoria().equals(Categoria.ESPECIAL)) {
+					escritor.writeObject((Colegiado)c);
+					escritor.flush();
+				}
+			}
+			escritor.close();
+		}catch(FileNotFoundException exct) {
+			System.out.println("FileNotException" + exct.getMessage());
+		}catch(IOException exct) {
+			System.out.println("IOException" + exct.getMessage());
+		}catch(Exception exct) {
+			System.out.println("Exception" + exct.getMessage());
+		}
+		
 	}
 }
