@@ -649,7 +649,7 @@ public class Datos {
 		}
 		return ret;
 	}
-	
+	//ejercicio 2 
 	public static void expColegiadosjr() {
 		String path = "colegiadosjunior.dat";
 		try {
